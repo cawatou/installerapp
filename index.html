@@ -1,32 +1,25 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Angular 2</title>
+    <base href="/">
+    <title>Angular Tour of Heroes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- 1. Загрузите библиотеки -->
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Polyfills -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 
-    <!-- 2. Настройте SystemJS -->
+    <script src="systemjs.config.js"></script>
     <script>
-      System.config({
-        packages: {        
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          }
-        }
-      });
-      System.import('app/boot')
-            .then(null, console.error.bind(console));
+      System.import('main.js').catch(function(err){ console.error(err); });
     </script>
-
   </head>
 
-  <!-- 3. Отобразите приложение -->
   <body>
     <my-app>Loading...</my-app>
   </body>
-
 </html>

@@ -1,5 +1,5 @@
 {
-    "name": "angular2-quickstart",
+    "name": "installerapp",
     "version": "1.0.0",
     "scripts": {
         "tsc": "tsc",
@@ -17,7 +17,7 @@
         "rxjs": "5.0.0-beta.0",
         "zone.js": "0.5.10"
     },
-    "devDependencies": {
+        "devDependencies": {
         "concurrently": "^1.0.0",
         "lite-server": "^1.3.1",
         "typescript": "^1.7.3"
