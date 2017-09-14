@@ -12,13 +12,13 @@ import { SchedulerComponent }                     from './scheduler.component';
 import { NotfoundComponent }                      from './notfound.component';
 
 const routes: Routes = [
-  { path: '',  component: AuthComponent },
+  { path: '', component: MainComponent },
+  { path: 'login',  component: AuthComponent },
   { path: 'contracts', component: ContractsComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'history/:id', component: HistoryDetailComponent },
   { path: 'knowledge',  component: KnowledgeComponent },
   { path: 'knowledge/:id', component: KnowledgeDetailComponent },
-  { path: 'main', component: MainComponent },
   { path: 'scheduler', component: SchedulerComponent },
   { path: '**',  component: NotfoundComponent }
 ];
