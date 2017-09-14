@@ -1,5 +1,5 @@
 {
-    "name": "installerapp",
+    "name": "ng2_ecommerce",
     "version": "1.0.0",
     "scripts": {
         "tsc": "tsc",

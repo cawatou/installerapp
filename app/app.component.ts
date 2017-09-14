@@ -1,22 +1,26 @@
-import { Component }          from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { ScriptService }   from './script.service';
 
 @Component({
-  selector: 'my-app',
-  template: `
-    <h1>{{title}}</h1>
-    <nav>
-    <ul>
-      <li><a routerLink="/dashboard" routerLinkActive="active">ДОГОВОРЫ</a></li>
-      <li><a routerLink="/heroes" routerLinkActive="active">ИСТОРИЯ СЧЕТА</a></li>
-      <li><a routerLink="" routerLinkActive="active">БАЗА ЗНАНИЙ</a></li>      
-      <li><a routerLink="" routerLinkActive="active">ВАШИ ПРЕДЛОЖЕНИЯ</a></li>
-      <li><a routerLink="" routerLinkActive="active">ПЛАНИРОВЩИК</a></li>
-    </ul>
-    </nav>
-    <router-outlet></router-outlet>
-  `,
-  styleUrls: ['./app.component.css']
+    selector: 'app',
+    templateUrl: './html/app.component.html',
 })
-export class AppComponent {
-  title = 'TELEDOM MASTER';
+export class AppComponent implements OnInit {
+    constructor(
+        private script: ScriptService
+    ){}
+
+    ngOnInit(): void {
+        this.script.loadScript('script').then(data => {
+            console.log('script loaded ', data);
+        }).catch(error => console.log(error));
+
+        this.script.cufon_init().then(data => {
+            console.log('cufon_init');
+        }).catch(error => console.log(error));
+
+        this.script.lightbox_init().then(data => {
+            console.log('lightbox_init');
+        }).catch(error => console.log(error));
+    }
 }

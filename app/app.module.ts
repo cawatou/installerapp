@@ -1,44 +1,44 @@
-import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }   from '@angular/forms';
-import { HttpModule }    from '@angular/http';
+import { NgModule }                 from '@angular/core';
+import { BrowserModule }            from '@angular/platform-browser';
+import { FormsModule }              from '@angular/forms';
+import { HttpModule }               from '@angular/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule }         from './app-routing.module';
+import { InMemoryWebApiModule }     from 'angular-in-memory-web-api';
 
-// Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+import { AppComponent }             from './app.component';
+import { AuthComponent }            from './auth.component';
+import { ContractsComponent }       from './contracts.component';
+import { HistoryComponent }         from './history.component';
+import { HistoryDetailComponent }   from './history-detail.component';
+import { KnowledgeComponent }       from './knowledge.component';
+import { KnowledgeDetailComponent } from './knowledge-detail.component';
+import { MainComponent }            from './main.component';
+import { SchedulerComponent }       from './scheduler.component';
+import { NotfoundComponent }        from './notfound.component';
 
-import { AppComponent }         from './app.component';
-import { DashboardComponent }   from './dashboard.component';
-
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
-import { HeroService }          from './hero.service';
-import { HeroSearchComponent }  from './hero-search.component';
-
-import { ScoringComponent }      from './scoring.component';
-import { ScoringService }          from './scoring.service';
+import { ScriptService }            from './script.service';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    
-    HeroDetailComponent,
-    HeroesComponent,
-    HeroSearchComponent,
-
-    //ScoringComponent,
+    AuthComponent,
+    ContractsComponent,
+    HistoryComponent,
+    HistoryDetailComponent,
+    KnowledgeComponent,
+    KnowledgeDetailComponent,
+    MainComponent,
+    SchedulerComponent,
+    NotfoundComponent
   ],
-  providers: [ HeroService ],
+  providers: [ ScriptService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
