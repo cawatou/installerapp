@@ -1,5 +1,5 @@
 import {Injectable}  from "@angular/core";
-import {ScriptStore} from "./script.store";
+import {ScriptStore} from "../script.store";
 
 declare var document: any;
 
@@ -51,25 +51,6 @@ export class ScriptService {
                 script.onerror = (error: any) => resolve({script: name, loaded: false, status: 'Loaded'});
                 document.getElementsByTagName('head')[0].appendChild(script);
             }
-        });
-    }
-
-    cufon_init() {
-        return new Promise((resolve, reject) => {
-            Cufon.replace('#about .right ul li');
-            Cufon.replace('h2', {textShadow: '0 2px rgba(0, 0, 0, 0.15)'});
-            Cufon.replace('#social .right a', {hover: true});
-            Cufon.replace('#work .left h3', {hover: true});
-            Cufon.replace('h3', {textShadow: '0 2px rgba(0, 0, 0, 0.15)'});
-            Cufon.replace('#contactinfo', {hover: true});
-            resolve();
-        });
-    }
-
-    lightbox_init() {
-        return new Promise((resolve, reject) => {
-            $('#work .right a').lightBox();
-            resolve();
         });
     }
 }

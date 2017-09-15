@@ -5,9 +5,10 @@ import { HttpModule }               from '@angular/http';
 
 import { AppRoutingModule }         from './app-routing.module';
 import { InMemoryWebApiModule }     from 'angular-in-memory-web-api';
-
+import { ScriptService }            from './services/script.service';
+import { AuthGuard }                from './auth.guard';
 import { AppComponent }             from './app.component';
-import { AuthComponent }            from './auth.component';
+import { LoginComponent }           from './login.component';
 import { ContractsComponent }       from './contracts.component';
 import { HistoryComponent }         from './history.component';
 import { HistoryDetailComponent }   from './history-detail.component';
@@ -17,7 +18,6 @@ import { MainComponent }            from './main.component';
 import { SchedulerComponent }       from './scheduler.component';
 import { NotfoundComponent }        from './notfound.component';
 
-import { ScriptService }            from './script.service';
 
 @NgModule({
   imports: [
@@ -28,7 +28,7 @@ import { ScriptService }            from './script.service';
   ],
   declarations: [
     AppComponent,
-    AuthComponent,
+    LoginComponent,
     ContractsComponent,
     HistoryComponent,
     HistoryDetailComponent,
@@ -38,7 +38,7 @@ import { ScriptService }            from './script.service';
     SchedulerComponent,
     NotfoundComponent
   ],
-  providers: [ ScriptService ],
+  providers: [ ScriptService, AuthGuard ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

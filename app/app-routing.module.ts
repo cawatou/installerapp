@@ -1,7 +1,7 @@
 import { NgModule }                               from '@angular/core';
 import { RouterModule, Routes, RouterLinkActive } from '@angular/router';
 
-import { AuthComponent }                          from './auth.component';
+import { LoginComponent }                          from './login.component';
 import { ContractsComponent }                     from './contracts.component';
 import { HistoryComponent }                       from './history.component';
 import { HistoryDetailComponent }                 from './history-detail.component';
@@ -10,16 +10,17 @@ import { KnowledgeDetailComponent }               from './knowledge-detail.compo
 import { MainComponent }                          from './main.component';
 import { SchedulerComponent }                     from './scheduler.component';
 import { NotfoundComponent }                      from './notfound.component';
+import { AuthGuard }                              from './auth.guard';
 
 const routes: Routes = [
-  { path: '', component: MainComponent },
-  { path: 'login',  component: AuthComponent },
-  { path: 'contracts', component: ContractsComponent },
-  { path: 'history', component: HistoryComponent },
-  { path: 'history/:id', component: HistoryDetailComponent },
-  { path: 'knowledge',  component: KnowledgeComponent },
-  { path: 'knowledge/:id', component: KnowledgeDetailComponent },
-  { path: 'scheduler', component: SchedulerComponent },
+  { path: '', component: MainComponent, canActivate: [AuthGuard] },
+  { path: 'contracts', component: ContractsComponent, canActivate: [AuthGuard] },
+  { path: 'history', component: HistoryComponent, canActivate: [AuthGuard] },
+  { path: 'history/:id', component: HistoryDetailComponent, canActivate: [AuthGuard] },
+  { path: 'knowledge',  component: KnowledgeComponent, canActivate: [AuthGuard] },
+  { path: 'knowledge/:id', component: KnowledgeDetailComponent, canActivate: [AuthGuard] },
+  { path: 'scheduler', component: SchedulerComponent, canActivate: [AuthGuard] },
+  { path: 'login',  component: LoginComponent },
   { path: '**',  component: NotfoundComponent }
 ];
 
