@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
     constructor(private router: Router) { }
 
     canActivate() {
-        if (1 == 0) {
+        if (1 == 1) {
             // logged in so return true
             return true;
         }
