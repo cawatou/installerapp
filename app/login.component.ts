@@ -22,13 +22,20 @@ export class LoginComponent implements OnInit {
     login() {
         this.loading = true;
         this.authService.login(this.model.username, this.model.password)
-            .subscribe(result => {
-                if (result === true) {
-                    this.router.navigate(['/']);
-                } else {
-                    this.error = 'Username or password is incorrect';
-                    this.loading = false;
+            .subscribe(
+                error => {
+                    this.error = error; 
+                    console.log(error)
+                },
+                result => {
+                    var tt = result.json();
+                    if (result === 1) {
+                        this.router.navigate(['/']);
+                    } else {
+                        this.error = 'Логин или пароль неверные';
+                        this.loading = false;
+                    }
                 }
-            });
+            );
     }
 }
