@@ -7,33 +7,23 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class AuthService {
-    public token: string;
 
     constructor(private http: Http) {
-        // set token if saved in local storage
-        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        this.token = currentUser && currentUser.token;
+        
     }
 
     login(username: string, password: string): Observable<boolean> {
-        let url = 'http://teledom.skipodev.ru/authmobile?login=' + username +'&password=' + password,
-            headers = new Headers();
-        headers.append('Content-Type', 'text/html; charset=UTF-8');
-        headers.append('Access-Control-Allow-Origin', '*');
-
-        let options = new RequestOptions({ headers: headers });
+        let url = 'http://teledom.skipodev.ru/authmobile?login=' + username +'&password=' + password;
 
         return this.http.post(url)  
             .map((response: Response) => {
                 let user = response.json();
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('user', JSON.stringify(user));
                 return user;
             });
     }
 
     logout(): void {
-        // clear token remove user from local storage to log user out
-        this.token = null;
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem('user');
     }
 }

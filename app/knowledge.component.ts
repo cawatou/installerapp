@@ -6,5 +6,18 @@ import {AppComponent} from "./app.component";
     templateUrl: './html/knowledge.component.html'
 })
 export class KnowledgeComponent implements OnInit {
-    //data = [];
+    knowledges:any = {};
+
+    knowledges = [
+        {
+            id: 1,
+            title: "Знание 1!",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut blanditiis commodi, inventore laudantium magnam molestiae, nemo nobis odit pariatur perferendis possimus quae quo repellat reprehenderit sint sunt tempore! Quia!"
+        },
+        {
+            id: 2,
+            title: "Знание 2",
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut blanditiis commodi, inventore laudantium magnam molestiae, nemo nobis odit pariatur perferendis possimus quae quo repellat reprehenderit sint sunt tempore! Quia!"
+        }
+    ];
 }

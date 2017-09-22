@@ -2,34 +2,10 @@
     <a href="/">Назад</a>
     <div class="well">
         <ul class="nav nav-pills nav-stacked">
-            <li>
-                <a href="">
-                    <p>Заголовок</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut blanditiis culpa dolorem dolorum earum eligendi esse, excepturi maiores modi non obcaecati, reprehenderit, saepe sunt totam vel voluptatum. Enim, ipsam!</p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <p>Заголовок</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut blanditiis culpa dolorem dolorum earum eligendi esse, excepturi maiores modi non obcaecati, reprehenderit, saepe sunt totam vel voluptatum. Enim, ipsam!</p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <p>Заголовок</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut blanditiis culpa dolorem dolorum earum eligendi esse, excepturi maiores modi non obcaecati, reprehenderit, saepe sunt totam vel voluptatum. Enim, ipsam!</p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <p>Заголовок</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut blanditiis culpa dolorem dolorum earum eligendi esse, excepturi maiores modi non obcaecati, reprehenderit, saepe sunt totam vel voluptatum. Enim, ipsam!</p>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <p>Заголовок</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut blanditiis culpa dolorem dolorum earum eligendi esse, excepturi maiores modi non obcaecati, reprehenderit, saepe sunt totam vel voluptatum. Enim, ipsam!</p>
+            <li *ngFor="let knowledge of knowledges">
+                <a href="knowledge/{{ knowledge.id }}">
+                    <p>{{ knowledge.title }}</p>
+                    <p>{{ knowledge.description }}</p>
                 </a>
             </li>
         </ul>
