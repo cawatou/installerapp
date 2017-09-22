@@ -10,8 +10,10 @@ export class LoginComponent implements OnInit {
     loading = false;
     error = '';
 
-    constructor(private router:Router,
-                private authService:AuthService) {
+    constructor(
+        private router:Router,
+        private authService:AuthService) {
+        
     }
 
     ngOnInit() {
@@ -23,17 +25,13 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.authService.login(this.model.username, this.model.password)
             .subscribe(
-                error => {
-                    this.error = error; 
-                    console.log(error)
-                },
                 result => {
-                    var tt = result.json();
-                    if (result === 1) {
-                        this.router.navigate(['/']);
-                    } else {
+                    console.log(result);
+                    if (result === 0) {
                         this.error = 'Логин или пароль неверные';
                         this.loading = false;
+                    } else { 
+                        this.router.navigate(['/']);
                     }
                 }
             );

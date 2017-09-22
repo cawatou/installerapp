@@ -23,7 +23,12 @@ export class AuthService {
 
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(url);
+        return this.http.post(url)  
+            .map((response: Response) => {
+                let user = response.json();
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                return user;
+            });
     }
 
     logout(): void {

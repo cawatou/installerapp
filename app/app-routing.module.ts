@@ -1,7 +1,8 @@
 import { NgModule }                               from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes, RouterLinkActive } from '@angular/router';
 
-import { LoginComponent }                          from './login.component';
+import { LoginComponent }                         from './login.component';
 import { ContractsComponent }                     from './contracts.component';
 import { HistoryComponent }                       from './history.component';
 import { HistoryDetailComponent }                 from './history-detail.component';
@@ -25,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ BrowserModule, RouterModule.forRoot(routes) ],
   exports: [ RouterModule ],
 })
 export class AppRoutingModule {}
