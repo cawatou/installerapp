@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/map'
+import { Injectable }                               from '@angular/core';
+import { Http, Headers, Response, RequestOptions }  from '@angular/http';
+import { Observable }                               from 'rxjs/Observable';
+import { JwtHelperService }                         from '@auth0/angular-jwt';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
@@ -18,7 +19,9 @@ export class AuthService {
         return this.http.post(url)  
             .map((response: Response) => {
                 let user = response.json();
+                //const token = user.user_id;
                 localStorage.setItem('user', JSON.stringify(user));
+
                 return user;
             });
     }

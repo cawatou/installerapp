@@ -17,7 +17,8 @@ import {KnowledgeDetailComponent} from './knowledge-detail.component';
 import {MainComponent}            from './main.component';
 import {SchedulerComponent}       from './scheduler.component';
 import {NotfoundComponent}        from './notfound.component';
-import {AuthService}                from "./services/auth.service";
+import {AuthService}              from "./services/auth.service";
+import {JwtHelperService}         from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {AuthService}                from "./services/auth.service";
     providers: [
         ScriptService,
         AuthGuard,
-        AuthService
+        AuthService,
+    //    JwtHelperService
     ],
     bootstrap: [AppComponent]
 })
